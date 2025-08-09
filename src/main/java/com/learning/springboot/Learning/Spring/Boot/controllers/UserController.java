@@ -1,4 +1,4 @@
-package controllers;
+package com.learning.springboot.Learning.Spring.Boot.controllers;
 // Create User -> POST --- /create-user
 // Get User/Users -> GET --- /fetch-user?user_id=
 // Update User
