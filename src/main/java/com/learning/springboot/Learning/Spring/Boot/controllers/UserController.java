@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-//    @GetMapping(path = "/fetch-user")
-//    public UsersDTO fetchUser() {
-//        System.out.println("Fetching user");
-//        /*
-//        OUTPUT : isActive would be shown as active due to serializer process which manages by Jackson package
-//        {
-//          "username": "mdshoaibakhtar",
-//          "password": "786",
-//          "email": "mdshoaibakhtar@gmail.com",
-//          "active": true
-//        }
-//         */
-//        return new UsersDTO("mdshoaibakhtar", "786","mdshoaibakhtar@gmail.com", true
-//        );
-//    }
+    @GetMapping(path = "/fetch-user")
+    public UsersDTO fetchUser() {
+        System.out.println("Fetching user");
+        /*
+        OUTPUT : isActive would be shown as active due to serializer process which manages by Jackson package
+        {
+          "username": "mdshoaibakhtar",
+          "password": "786",
+          "email": "mdshoaibakhtar@gmail.com",
+          "active": true
+        }
+         */
+        return new UsersDTO("mdshoaibakhtar", "786","mdshoaibakhtar@gmail.com", true
+        );
+    }
 
     @GetMapping(path = "/fetch-user/{userName}")
     public UsersDTO fetchUser(@PathVariable("userName") String userName) {
@@ -44,22 +44,22 @@ public class UserController {
         return new UsersDTO(userName, "786","mdshoaibakhtar@gmail.com", true
         );
     }
-
-    @GetMapping(path = "/fetch-user")
-    public UsersDTO fetchUser(@PathParam("isActive") Boolean isActive) {
-        System.out.println("Fetching user");
-        /*
-        OUTPUT : isActive would be shown as active due to serializer process which manages by Jackson package
-        {
-          "username": "mdshoaibakhtar",
-          "password": "786",
-          "email": "mdshoaibakhtar@gmail.com",
-          "active": {isActive}
-        }
-         */
-        if (isActive == null){
-            isActive = false;
-        }
-        return new UsersDTO("mdshoaibakhtar", "786","mdshoaibakhtar@gmail.com", isActive?true:false);
-    }
+//
+//    @GetMapping(path = "/fetch-user")
+//    public UsersDTO fetchUser(@PathParam("isActive") Boolean isActive) {
+//        System.out.println("Fetching user");
+//        /*
+//        OUTPUT : isActive would be shown as active due to serializer process which manages by Jackson package
+//        {
+//          "username": "mdshoaibakhtar",
+//          "password": "786",
+//          "email": "mdshoaibakhtar@gmail.com",
+//          "active": {isActive}
+//        }
+//         */
+//        if (isActive == null){
+//            isActive = false;
+//        }
+//        return new UsersDTO("mdshoaibakhtar", "786","mdshoaibakhtar@gmail.com", isActive?true:false);
+//    }
 }
