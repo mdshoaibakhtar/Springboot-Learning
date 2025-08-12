@@ -6,10 +6,12 @@ package com.learning.springboot.Learning.Spring.Boot.controllers;
 
 
 import com.learning.springboot.Learning.Spring.Boot.dto.UsersDTO;
+import com.learning.springboot.Learning.Spring.Boot.repositories.Product;
+import com.learning.springboot.Learning.Spring.Boot.services.ProductService;
 import jakarta.websocket.server.PathParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -62,4 +64,26 @@ public class UserController {
 //        }
 //        return new UsersDTO("mdshoaibakhtar", "786","mdshoaibakhtar@gmail.com", isActive?true:false);
 //    }
+
+    private final ProductService productService;
+
+    public UserController(ProductService productService) {
+        this.productService = productService;
+    }
+    @GetMapping("/check-db")
+    public String checkDbConnection() {
+        return "Successfully connected to DB";
+    }
+
+    @PostMapping("/create-products")
+    public Product createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
+    }
+
+    @GetMapping("get-all-product")
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
+    }
+
+
 }

@@ -34,6 +34,7 @@ public class LearningSpringBootApplication implements CommandLineRunner {
      * we can choose which one to use by specifying the bean name
      * in the application.properties (e.g., provider.name).
      *
+     * Happy path : [[1, 3], [2, 5]] = [[1, 5]]
      * During application startup, the IoC (Inversion of Control) container
      * creates the ApplicationContext (a collection of beans).
      * Beans are created from POJO classes (e.g., PaytmPayment, RazorpayPayment)
